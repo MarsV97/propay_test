@@ -89,7 +89,7 @@ class Create extends Component
 
         $this->userDetails->interests()->attach($this->interest);
 
-        Mail::to($this->user->email)->send(new UserCreated($this->user));
+        Mail::to($this->user->email)->queue(new UserCreated($this->user));
 
         session()->flash('success', 'User and details created successfully!');
 
